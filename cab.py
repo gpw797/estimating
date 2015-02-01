@@ -1,7 +1,7 @@
 
 wthresh = 32
 
-def cab(t, e, w, h, d, n, p, drw, f, l):
+def cab(t, e, w, h, d, n, p, dr, drw, f, l):
     global wthresh
     # t = type, open, w = width, h = height, d= depth, n = number shelves, d = number drawers, f = number finished ends,
     # returns mos = open side, mfe = finished ends, mosh = open shelves, motb = top and bottom, labor = shop labor
@@ -70,16 +70,18 @@ def cab(t, e, w, h, d, n, p, drw, f, l):
                 ucbw = w * d / 14.00 #wide bottom
                 ucsw = n * (w * d / 144.00) #wide shelves
             ucbk = w * h / 144
-            hnges = d * 2
+            hnges = dr * 2
             udr = w * h / 144
             ceb = (2 * w + 2 * h + n * w + p * h) / 12
             eeb = (2 * w + (2 * d * h)) / 12
 
     return (uot, uotw, uob, uobw, uoe, uof, uos, uosw, uct, uctw, ucb, ucbw, uce, ucf, ucs, ucsw, hnges, udr)
 
-cab(1, 0, 45, 17, 15, 2, 1, 0, 1, 1)
+cab(1, 0, 45, 17, 15, 2, 1, 2, 0, 1, 0)
 
 '''
+   t, e, w, h, d, n, p, dr, drw, f, l
+
 uot top
 uotw top wide
 uob bottom
