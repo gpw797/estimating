@@ -13,6 +13,7 @@ def cab(t, e, w, h, d, n, p, drw, f, l):
     uof = 0.00 #fin end
     uos = 0.00 #shelf
     uosw = 0.00 #shelf wide
+    uobk = 0.00 #exposed back
     uct = 0.00 #top
     uctw = 0.00 #top wide
     ucb = 0.00 #bottom
@@ -21,7 +22,8 @@ def cab(t, e, w, h, d, n, p, drw, f, l):
     ucf = 0.00 #fin end
     ucs = 0.00 #shelf
     ucsw = 0.00 #shelf wide
-    udr = 0.0 # doors
+    ucbk = 0.00 #semi-exposed back
+    udr = 0.0 #doors
     hnges = 0 #hinges
     eeb = 0 #exposed edgebanding
     ceb = 0 #concealed edgebanding
@@ -46,7 +48,8 @@ def cab(t, e, w, h, d, n, p, drw, f, l):
                 uotw = w * d / 144.00 #wide top
                 uobw = w * d / 144.00 #wide bottom
                 uosw = n * (w * d / 144.00) #wide shelves
-            eeb = 2 * w + 2 * h + n * w + p * h
+            uobk = w * h / 144.00
+            eeb = (2 * w + 2 * h + n * w + p * h) / 12
 
         if e == 0: #cab is closed type
             if f == 0: # f is qty fin ends
@@ -66,10 +69,11 @@ def cab(t, e, w, h, d, n, p, drw, f, l):
                 uctw = w * d / 144.00 #wide top
                 ucbw = w * d / 14.00 #wide bottom
                 ucsw = n * (w * d / 144.00) #wide shelves
+            ucbk = w * h / 144
             hnges = d * 2
-            udr = w * h
-            ceb = 2 * w + 2 * h + n * w + p * h
-            eeb = 2 * w + (2 * d * h)
+            udr = w * h / 144
+            ceb = (2 * w + 2 * h + n * w + p * h) / 12
+            eeb = (2 * w + (2 * d * h)) / 12
 
     return (uot, uotw, uob, uobw, uoe, uof, uos, uosw, uct, uctw, ucb, ucbw, uce, ucf, ucs, ucsw, hnges, udr)
 
